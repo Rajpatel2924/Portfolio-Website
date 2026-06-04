@@ -1,81 +1,111 @@
-import { ArrowRight, Mail, MapPin, MessageSquare, Phone } from 'lucide-react';
+import { Award, Mail, MapPin, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const contactMethods = [
-  { Icon: Mail, label: 'Email', value: 'rajpatel805233@gmail.com', href: 'mailto:rajpatel805233@gmail.com' },
-  { Icon: Phone, label: 'Phone', value: '+91 9506794037', href: 'tel:+919506794037' },
-  { Icon: MapPin, label: 'Location', value: 'Kanpur, Uttar Pradesh', href: '#' },
+const reviews = [
+  { by: 'ResQ-Her', text: 'Safety first' },
+  { by: 'PolicyGuard', text: 'Offline AI review' },
+  { by: 'RajGharana', text: 'Luxury commerce' },
+  { by: 'BioBalance', text: 'Health-aware meals' },
+  { by: 'Portfolio', text: 'Built with care' },
+];
+
+const certifications = [
+  { title: 'Full Stack Development', platform: 'Project Based Learning', date: 'React, Node, Python' },
+  { title: 'AI Policy Analysis', platform: 'PolicyGuard', date: 'Offline LLM tooling' },
+  { title: 'Production Deployment', platform: 'Vercel + GitHub', date: 'Live portfolio workflow' },
+  { title: 'Commerce Integrations', platform: 'RajGharana', date: 'Clerk and Razorpay' },
 ];
 
 export function Contact() {
   return (
-    <section className="section-band contact-band">
-      <div className="section-shell contact-grid">
-        <motion.div
-          className="contact-copy"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.55 }}
-        >
-          <span className="section-kicker">Contact</span>
-          <h2>Have a project in mind?</h2>
-          <p>
-            Send a note about what you are building, where you are stuck, or what
-            kind of experience you want to create. I will get back with a clear next step.
-          </p>
-
-          <div className="contact-list">
-            {contactMethods.map((item) => {
-              const Icon = item.Icon;
-
-              return (
-                <a key={item.label} href={item.href}>
-                  <span>
-                    <Icon size={20} aria-hidden="true" />
-                  </span>
-                  <span>
-                    <strong>{item.label}</strong>
-                    {item.value}
-                  </span>
-                </a>
-              );
-            })}
+    <>
+      <section id="reviews" className="reviews-view">
+        <div className="view-shell">
+          <div className="section-title">
+            <h2>Some Reviews</h2>
+            <span />
           </div>
-        </motion.div>
+        </div>
 
-        <motion.form
-          className="contact-form"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.55, delay: 0.12 }}
-        >
-          <div className="form-header">
-            <span>
-              <MessageSquare size={20} aria-hidden="true" />
-            </span>
-            <h3>Quick message</h3>
+        <div className="reviews-list">
+          {reviews.map((review, index) => (
+            <motion.div
+              className={`review-item ${index % 2 === 0 ? 'align-end' : 'align-start'}`}
+              key={review.text}
+              initial={{ opacity: 0, x: index % 2 === 0 ? 80 : -80 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.55 }}
+            >
+              <span>{review.by}</span>
+              <strong>&quot;{review.text}&quot;</strong>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      <section id="certifications" className="certifications-view">
+        <div className="cert-top-band" />
+        <div className="view-shell certifications-shell">
+          <div className="section-title">
+            <h2>Licenses &amp; certifications</h2>
+            <span />
           </div>
 
-          <label>
-            Name
-            <input type="text" name="name" placeholder="Your name" />
-          </label>
-          <label>
-            Email
-            <input type="email" name="email" placeholder="you@example.com" />
-          </label>
-          <label>
-            Message
-            <textarea name="message" placeholder="Tell me a little about your idea" />
-          </label>
-          <button className="button button-primary" type="submit">
-            Send message
-            <ArrowRight size={18} aria-hidden="true" />
-          </button>
-        </motion.form>
-      </div>
-    </section>
+          <div className="cert-grid">
+            {certifications.map((item, index) => (
+              <motion.article
+                className="cert-card"
+                key={item.title}
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{ duration: 0.5, delay: index * 0.06 }}
+              >
+                <div className="cert-head">
+                  <Award size={28} />
+                </div>
+                <h3>{item.title}</h3>
+                <p>{item.platform}</p>
+                <span>{item.date}</span>
+              </motion.article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="contact-view">
+        <div className="zebra-strip" />
+        <div className="contact-box">
+          <div className="contact-box-inner">
+            <p className="contact-label">Get in touch</p>
+            <h2>Let&apos;s Work Together</h2>
+            <p>
+              I&apos;m open for new opportunities, internships, and ambitious projects.
+              Whether you have a question or just want to say hi, my inbox is always open.
+            </p>
+
+            <div className="contact-methods">
+              <a href="mailto:rajpatel805233@gmail.com">
+                <Mail size={18} />
+                rajpatel805233@gmail.com
+              </a>
+              <a href="tel:+919506794037">
+                <Phone size={18} />
+                +91 9506794037
+              </a>
+              <span>
+                <MapPin size={18} />
+                Kanpur, Uttar Pradesh
+              </span>
+            </div>
+
+            <a className="ai-button" href="mailto:rajpatel805233@gmail.com">
+              Say Hello
+            </a>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

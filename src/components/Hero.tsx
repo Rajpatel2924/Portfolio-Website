@@ -1,125 +1,74 @@
-import { ArrowDown, BriefcaseBusiness, Code2, Mail, Sparkles } from 'lucide-react';
+import { ArrowRight, Code2, Database, Mail, ShieldCheck, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
-import type { Variants } from 'framer-motion';
 import heroImage from '../assets/professional-avatar.jpg';
 
-const highlights = [
-  { value: '15+', label: 'Projects shipped' },
-  { value: '2 yrs', label: 'Building apps' },
-  { value: '8', label: 'Core tools' },
+const orbitItems = [
+  { label: 'React', Icon: Code2, className: 'orbit-one' },
+  { label: 'Python', Icon: Database, className: 'orbit-two' },
+  { label: 'AI', Icon: Sparkles, className: 'orbit-three' },
+  { label: 'Security', Icon: ShieldCheck, className: 'orbit-four' },
 ];
 
-const titleWords = ['Raj', 'Patel', 'builds', 'clean,', 'expressive', 'web', 'experiences.'];
-
 export function Hero() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.14,
-        delayChildren: 0.18,
-      },
-    },
-  };
-
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 18 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
-    },
-  };
-
   return (
-    <section className="hero-section">
-      <div className="section-shell hero-grid">
+    <section className="hero-view">
+      <div className="hero-inner">
         <motion.div
           className="hero-copy"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.div className="eyebrow" variants={itemVariants}>
-            <Sparkles size={16} aria-hidden="true" />
-            Available for thoughtful web work
-          </motion.div>
-
-          <motion.div variants={itemVariants}>
-            <h1 className="animated-title" aria-label="Raj Patel builds clean, expressive web experiences.">
-              {titleWords.map((word, index) => (
-                <motion.span
-                  aria-hidden="true"
-                  key={`${word}-${index}`}
-                  initial={{ opacity: 0, filter: 'blur(14px)', y: 28 }}
-                  animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
-                  transition={{
-                    duration: 0.68,
-                    delay: 0.28 + index * 0.07,
-                    ease: [0.16, 1, 0.3, 1],
-                  }}
-                >
-                  {word}
-                </motion.span>
-              ))}
-            </h1>
-            <p className="hero-subtitle">
-              Full-stack developer focused on polished interfaces, reliable React apps,
-              and product details that make software feel effortless.
-            </p>
-          </motion.div>
-
-          <motion.div className="hero-actions" variants={itemVariants}>
-            <motion.a className="button button-primary" href="#projects" whileHover={{ y: -3 }}>
-              View work
-              <ArrowDown size={18} aria-hidden="true" />
-            </motion.a>
-            <motion.a className="button button-secondary" href="#contact" whileHover={{ y: -3 }}>
-              Start a conversation
-            </motion.a>
-          </motion.div>
-
-          <motion.div className="social-row" variants={itemVariants} aria-label="Social links">
-            <a href="https://github.com" aria-label="GitHub">
-              <Code2 size={20} />
-            </a>
-            <a href="https://linkedin.com" aria-label="LinkedIn">
-              <BriefcaseBusiness size={20} />
-            </a>
-            <a href="mailto:rajpatel805233@gmail.com" aria-label="Email">
-              <Mail size={20} />
-            </a>
-          </motion.div>
-        </motion.div>
-
-        <motion.div
-          className="hero-visual"
-          initial={{ opacity: 0, scale: 0.96, y: 24 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
-        >
-          <div className="portrait-frame">
-            <img src={heroImage} alt="Portfolio portrait illustration" />
-          </div>
-          <div className="availability-card">
-            <span className="status-dot" />
-            Open to internships and freelance projects
-          </div>
-        </motion.div>
-
-        <motion.div
-          className="hero-highlights"
-          initial={{ opacity: 0, y: 18 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: 'easeOut', delay: 0.62 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
-          {highlights.map((item) => (
-            <div key={item.label}>
-              <strong>{item.value}</strong>
-              <span>{item.label}</span>
-            </div>
+          <span className="hero-kicker">G&apos;day, I&apos;m</span>
+          <h1>
+            Raj Patel,
+            <span>A Software Engineer</span>
+          </h1>
+          <p>
+            A dedicated full-stack developer who loves creating useful things for
+            the internet. I build clean interfaces, practical tools, and products
+            that solve real problems across safety, commerce, AI, and health tech.
+          </p>
+
+          <div className="hero-actions">
+            <a className="ai-button" href="#contact">
+              Contact me!
+              <ArrowRight size={17} />
+            </a>
+            <a className="ghost-button" href="https://github.com/Rajpatel2924" target="_blank" rel="noreferrer">
+              <Code2 size={17} />
+              GitHub
+            </a>
+          </div>
+        </motion.div>
+
+        <motion.div
+          className="hero-stage"
+          initial={{ opacity: 0, scale: 0.92 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.9, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <div className="hero-portrait-shell">
+            <div className="hero-portrait-filter" />
+            <img src={heroImage} alt="Professional animated portrait of Raj Patel" />
+          </div>
+
+          {orbitItems.map(({ label, Icon, className }) => (
+            <motion.div
+              className={`orbit-chip ${className}`}
+              key={label}
+              animate={{ y: [0, -12, 0], rotate: [0, 3, 0] }}
+              transition={{ duration: 4.5, repeat: Infinity, delay: orbitItems.findIndex((item) => item.label === label) * 0.35 }}
+            >
+              <Icon size={18} />
+              {label}
+            </motion.div>
           ))}
+
+          <div className="hero-code-card">
+            <Mail size={17} />
+            <span>rajpatel805233@gmail.com</span>
+          </div>
         </motion.div>
       </div>
     </section>
