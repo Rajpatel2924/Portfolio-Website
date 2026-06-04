@@ -7,7 +7,7 @@ const socialLinks = [
   { Icon: Code2, href: 'https://github.com', label: 'GitHub' },
   { Icon: BriefcaseBusiness, href: 'https://linkedin.com', label: 'LinkedIn' },
   { Icon: MessageCircle, href: 'https://twitter.com', label: 'Twitter' },
-  { Icon: Mail, href: 'mailto:hello@example.com', label: 'Email' },
+  { Icon: Mail, href: 'mailto:rajpatel805233@gmail.com', label: 'Email' },
 ];
 
 export function Footer() {
@@ -23,7 +23,7 @@ export function Footer() {
         >
           <a className="brand-mark" href="#home">
             <span>RP</span>
-            <strong>Rudra Patel</strong>
+            <strong>Raj Patel</strong>
           </a>
           <p>Building React products with sharp UI, practical motion, and a calm user experience.</p>
         </motion.div>
@@ -66,7 +66,7 @@ export function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <span>© {currentYear} Rudra Patel. All rights reserved.</span>
+        <span>© {currentYear} Raj Patel. All rights reserved.</span>
         <span>Built with React and Framer Motion.</span>
       </div>
     </footer>

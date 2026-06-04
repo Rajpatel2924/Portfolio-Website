@@ -20,9 +20,9 @@ export function Navigation() {
       transition={{ duration: 0.5 }}
     >
       <div className="nav-shell">
-        <a className="brand-mark" href="#home" aria-label="Rudra Patel home">
+        <a className="brand-mark" href="#home" aria-label="Raj Patel home">
           <span>RP</span>
-          <strong>Rudra Patel</strong>
+          <strong>Raj Patel</strong>
         </a>
 
         <div className="desktop-nav">

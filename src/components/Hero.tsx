@@ -1,7 +1,7 @@
 import { ArrowDown, BriefcaseBusiness, Code2, Mail, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
-import heroImage from '../assets/hero.png';
+import heroImage from '../assets/professional-avatar.jpg';
 
 const highlights = [
   { value: '15+', label: 'Projects shipped' },
@@ -9,7 +9,7 @@ const highlights = [
   { value: '8', label: 'Core tools' },
 ];
 
-const titleWords = ['Rudra', 'Patel', 'builds', 'clean,', 'expressive', 'web', 'experiences.'];
+const titleWords = ['Raj', 'Patel', 'builds', 'clean,', 'expressive', 'web', 'experiences.'];
 
 export function Hero() {
   const containerVariants = {
@@ -47,7 +47,7 @@ export function Hero() {
           </motion.div>
 
           <motion.div variants={itemVariants}>
-            <h1 className="animated-title" aria-label="Rudra Patel builds clean, expressive web experiences.">
+            <h1 className="animated-title" aria-label="Raj Patel builds clean, expressive web experiences.">
               {titleWords.map((word, index) => (
                 <motion.span
                   aria-hidden="true"
@@ -87,7 +87,7 @@ export function Hero() {
             <a href="https://linkedin.com" aria-label="LinkedIn">
               <BriefcaseBusiness size={20} />
             </a>
-            <a href="mailto:hello@example.com" aria-label="Email">
+            <a href="mailto:rajpatel805233@gmail.com" aria-label="Email">
               <Mail size={20} />
             </a>
           </motion.div>

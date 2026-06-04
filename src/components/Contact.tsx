@@ -2,9 +2,9 @@ import { ArrowRight, Mail, MapPin, MessageSquare, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const contactMethods = [
-  { Icon: Mail, label: 'Email', value: 'hello@example.com', href: 'mailto:hello@example.com' },
-  { Icon: Phone, label: 'Phone', value: '+1 (555) 000-0000', href: 'tel:+15550000000' },
-  { Icon: MapPin, label: 'Location', value: 'San Francisco, CA', href: '#' },
+  { Icon: Mail, label: 'Email', value: 'rajpatel805233@gmail.com', href: 'mailto:rajpatel805233@gmail.com' },
+  { Icon: Phone, label: 'Phone', value: '+91 9506794037', href: 'tel:+919506794037' },
+  { Icon: MapPin, label: 'Location', value: 'Kanpur, Uttar Pradesh', href: '#' },
 ];
 
 export function Contact() {
