@@ -1,4 +1,4 @@
-import { ArrowUpRight, Code2, Layers, LineChart, ShoppingBag, Users } from 'lucide-react';
+import { ArrowUpRight, Code2, HeartPulse, Landmark, ShieldCheck, Siren } from 'lucide-react';
 import { motion } from 'framer-motion';
 import type { LucideIcon } from 'lucide-react';
 
@@ -10,49 +10,50 @@ interface Project {
   accent: string;
   Icon: LucideIcon;
   github: string;
-  live: string;
+  live?: string;
 }
 
 const projects: Project[] = [
   {
     id: 1,
-    title: 'Commerce Control Room',
-    description: 'A storefront and admin workflow with inventory visibility, checkout states, and order review.',
-    tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-    accent: 'mint',
-    Icon: ShoppingBag,
-    github: '#',
-    live: '#',
+    title: 'ResQ-Her',
+    description:
+      'Rapid-response safety app for women with silent SOS, live location sharing, trusted contact alerts, and discreet evidence capture.',
+    tags: ['JavaScript', 'TypeScript', 'Python', 'CSS'],
+    accent: 'coral',
+    Icon: Siren,
+    github: 'https://github.com/Rajpatel2924/ResQ-Her',
   },
   {
     id: 2,
-    title: 'Team Task Studio',
-    description: 'A collaborative planning space for teams with focused boards, activity signals, and fast filters.',
-    tags: ['React', 'Firebase', 'Tailwind', 'Redux'],
-    accent: 'coral',
-    Icon: Layers,
-    github: '#',
-    live: '#',
+    title: 'PolicyGuard',
+    description:
+      'Offline LLM policy analyzer built to inspect, evaluate, and flag policy concerns without depending on a hosted model workflow.',
+    tags: ['Python', 'LLM', 'Policy Analysis', 'Offline Tool'],
+    accent: 'gold',
+    Icon: ShieldCheck,
+    github: 'https://github.com/Rajpatel2924/PolicyGuard',
   },
   {
     id: 3,
-    title: 'Metrics Pulse',
-    description: 'A data dashboard built for scanning trends, comparing KPIs, and catching operational changes.',
-    tags: ['React', 'D3.js', 'Express', 'PostgreSQL'],
+    title: 'RajGharana',
+    description:
+      'Luxury fashion eCommerce platform with a polished storefront, authentication, checkout flow, and Razorpay payment integration.',
+    tags: ['Next.js', 'JavaScript', 'Clerk', 'Razorpay'],
     accent: 'blue',
-    Icon: LineChart,
-    github: '#',
-    live: '#',
+    Icon: Landmark,
+    github: 'https://github.com/Rajpatel2924/RajGharana',
+    live: 'https://raj-gharana.vercel.app',
   },
   {
     id: 4,
-    title: 'Community Feed',
-    description: 'A social app prototype with real-time posting, notifications, and lightweight profile flows.',
-    tags: ['React', 'WebSockets', 'MongoDB', 'JWT'],
-    accent: 'gold',
-    Icon: Users,
-    github: '#',
-    live: '#',
+    title: 'BioBalance',
+    description:
+      'Full-stack health app that recommends healthier meals from vital parameters like blood pressure, blood sugar, and oxygen level.',
+    tags: ['JavaScript', 'Python', 'CSS', 'HTML'],
+    accent: 'mint',
+    Icon: HeartPulse,
+    github: 'https://github.com/Rajpatel2924/Biobalance',
   },
 ];
 
@@ -61,9 +62,9 @@ export function Projects() {
     <section className="section-band">
       <div className="section-shell">
         <div className="section-heading">
-          <span className="section-kicker">Selected work</span>
+          <span className="section-kicker">GitHub projects</span>
           <h2>Featured Projects</h2>
-          <p>Interface-focused builds with clean architecture, polished motion, and practical product thinking.</p>
+          <p>Four selected builds from my GitHub, spanning safety, AI policy analysis, commerce, and health tech.</p>
         </div>
 
         <div className="projects-grid">
@@ -97,14 +98,16 @@ export function Projects() {
                 </div>
 
                 <div className="project-links">
-                  <a href={project.github}>
+                  <a href={project.github} target="_blank" rel="noreferrer">
                     <Code2 size={17} aria-hidden="true" />
                     Code
                   </a>
-                  <a href={project.live}>
-                    <ArrowUpRight size={17} aria-hidden="true" />
-                    Live
-                  </a>
+                  {project.live && (
+                    <a href={project.live} target="_blank" rel="noreferrer">
+                      <ArrowUpRight size={17} aria-hidden="true" />
+                      Live
+                    </a>
+                  )}
                 </div>
               </motion.article>
             );
