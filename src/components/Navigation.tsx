@@ -1,6 +1,6 @@
 import { Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import profileImage from '../assets/professional-avatar.jpg';
 
 const navItems = [
@@ -15,9 +15,31 @@ const navItems = [
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const updateProgress = () => {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
+      setScrollProgress(Math.min(1, Math.max(0, progress)));
+    };
+
+    updateProgress();
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
+
+    return () => {
+      window.removeEventListener('scroll', updateProgress);
+      window.removeEventListener('resize', updateProgress);
+    };
+  }, []);
 
   return (
     <>
+      <div className="scroll-progress" aria-hidden="true">
+        <span style={{ transform: `scaleX(${scrollProgress})` }} />
+      </div>
+
       <motion.header
         className="top-nav"
         initial={{ opacity: 0, y: -16 }}
@@ -78,6 +100,9 @@ export function Navigation() {
         </a>
         <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn">
           <LinkedInIcon />
+        </a>
+        <a className="rail-contact-button" href="#contact">
+          Contact me!
         </a>
       </aside>
 
