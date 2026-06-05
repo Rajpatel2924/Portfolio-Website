@@ -1,6 +1,7 @@
 import { ArrowRight, Code2, Database, Mail, ShieldCheck, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 import heroImage from '../assets/professional-avatar.jpg';
+import BlobCursor from './BlobCursor';
 
 const orbitItems = [
   { label: 'React', Icon: Code2, className: 'orbit-one' },
@@ -48,6 +49,26 @@ export function Hero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
         >
+          <BlobCursor
+            blobType="circle"
+            fillColor="#f2d56c"
+            trailCount={3}
+            sizes={[620, 460, 280]}
+            innerSizes={[34, 22, 16]}
+            innerColor="rgba(255,255,255,0.42)"
+            opacities={[0.92, 0.38, 0.24]}
+            shadowColor="rgba(201,85,82,0.08)"
+            shadowBlur={42}
+            shadowOffsetX={0}
+            shadowOffsetY={28}
+            filterId="hero-yellow-blob"
+            filterStdDeviation={18}
+            useFilter={true}
+            fastDuration={0.18}
+            slowDuration={0.72}
+            zIndex={0}
+          />
+
           <div className="hero-portrait-shell">
             <div className="hero-portrait-filter" />
             <img src={heroImage} alt="Professional animated portrait of Raj Patel" />

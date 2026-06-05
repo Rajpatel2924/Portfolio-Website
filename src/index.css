@@ -412,21 +412,7 @@ main {
 .hero-stage {
   position: relative;
   min-height: 520px;
-}
-
-.hero-stage::before {
-  position: absolute;
-  right: 2%;
-  bottom: -7%;
-  width: min(48vw, 650px);
-  height: min(48vw, 650px);
-  border-radius: 48% 52% 43% 57% / 58% 44% 56% 42%;
-  background:
-    radial-gradient(circle at 52% 58%, rgba(255, 247, 198, 0.72), transparent 7%),
-    linear-gradient(135deg, #f9df72, #d7bd55);
-  box-shadow: inset 0 0 90px rgba(255, 255, 255, 0.25), 0 35px 80px rgba(201, 85, 82, 0.08);
-  animation: blob-morph 8s ease-in-out infinite alternate;
-  content: "";
+  isolation: isolate;
 }
 
 .hero-portrait-shell {
@@ -504,23 +490,6 @@ main {
   bottom: 34px;
   padding: 14px 16px;
   color: var(--theme-3);
-}
-
-@keyframes blob-morph {
-  0% {
-    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
-    border-radius: 48% 52% 43% 57% / 58% 44% 56% 42%;
-  }
-
-  50% {
-    transform: translate3d(-22px, 16px, 0) rotate(5deg) scale(1.04);
-    border-radius: 56% 44% 54% 46% / 46% 58% 42% 54%;
-  }
-
-  100% {
-    transform: translate3d(16px, -12px, 0) rotate(-4deg) scale(0.98);
-    border-radius: 42% 58% 49% 51% / 54% 42% 58% 46%;
-  }
 }
 
 .about-view,
