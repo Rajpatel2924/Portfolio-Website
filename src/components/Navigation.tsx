@@ -1,6 +1,7 @@
-import { BriefcaseBusiness, Camera, Code2, Mail, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import profileImage from '../assets/professional-avatar.jpg';
 
 const navItems = [
   { name: 'Home', href: '#home' },
@@ -23,9 +24,8 @@ export function Navigation() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <a className="mono-logo" href="#home" aria-label="Raj Patel home">
-          <span>R</span>
-          <span>P</span>
+        <a className="profile-logo" href="#home" aria-label="Raj Patel home">
+          <img src={profileImage} alt="" />
         </a>
 
         <nav className="nav-links" aria-label="Primary navigation">
@@ -35,6 +35,10 @@ export function Navigation() {
             </a>
           ))}
         </nav>
+
+        <a className="cv-top-link" href="#contact">
+          Curriculum Vitae | CV
+        </a>
 
         <button
           className="mobile-toggle"
@@ -62,32 +66,58 @@ export function Navigation() {
         </motion.nav>
       )}
 
-      <aside className="side-rail side-rail-left" aria-hidden="true">
-        <div className="vertical-mark">
-          {'RAJPATEL'.split('').map((letter, index) => (
-            <span key={`${letter}-${index}`}>{letter}</span>
-          ))}
-        </div>
-        <a className="cv-link" href="#contact">
-          Curriculum Vitae | CV
+      <aside className="social-rail" aria-label="Social links">
+        <a href="https://github.com/Rajpatel2924" target="_blank" rel="noreferrer" aria-label="GitHub">
+          <GitHubIcon />
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">
+          <InstagramIcon />
+        </a>
+        <a href="https://twitter.com" target="_blank" rel="noreferrer" aria-label="Twitter">
+          <TwitterIcon />
+        </a>
+        <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+          <LinkedInIcon />
         </a>
       </aside>
 
-      <aside className="side-rail side-rail-right" aria-label="Social links">
-        <a href="https://github.com/Rajpatel2924" target="_blank" rel="noreferrer" aria-label="GitHub">
-          <Code2 size={18} />
-        </a>
-        <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">
-          <Camera size={18} />
-        </a>
-        <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-          <BriefcaseBusiness size={18} />
-        </a>
-        <a href="mailto:rajpatel805233@gmail.com" aria-label="Email">
-          <Mail size={18} />
-        </a>
+      <aside className="email-rail" aria-label="Email">
         <span className="rail-email">rajpatel805233@gmail.com</span>
       </aside>
     </>
+  );
+}
+
+function GitHubIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 .7a11.3 11.3 0 0 0-3.6 22c.6.1.8-.2.8-.6v-2c-3.4.7-4.1-1.5-4.1-1.5-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6a4.7 4.7 0 0 1 1.3-3.3 4.3 4.3 0 0 1 .1-3.2s1-.3 3.4 1.2a11.6 11.6 0 0 1 6.2 0C18 3.2 19 3.5 19 3.5a4.3 4.3 0 0 1 .1 3.2 4.7 4.7 0 0 1 1.3 3.3c0 4.7-2.8 5.7-5.5 6 .5.4.9 1.1.9 2.3v3.8c0 .4.2.7.8.6A11.3 11.3 0 0 0 12 .7Z" />
+    </svg>
+  );
+}
+
+function InstagramIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="1" />
+    </svg>
+  );
+}
+
+function TwitterIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M21.5 5.8c-.7.3-1.5.6-2.3.7.8-.5 1.4-1.2 1.7-2.2-.8.5-1.6.8-2.6 1A4 4 0 0 0 11.4 9c0 .3 0 .6.1.9A11.3 11.3 0 0 1 3.3 5.7a4 4 0 0 0 1.2 5.4c-.7 0-1.3-.2-1.8-.5v.1a4 4 0 0 0 3.2 3.9c-.3.1-.7.1-1.1.1-.3 0-.5 0-.8-.1a4 4 0 0 0 3.7 2.8 8.1 8.1 0 0 1-5 1.7H1.8a11.4 11.4 0 0 0 6.2 1.8c7.4 0 11.5-6.1 11.5-11.5V9c.8-.6 1.5-1.3 2-2.2Z" />
+    </svg>
+  );
+}
+
+function LinkedInIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M5.1 8.8h3.1v10H5.1v-10Zm1.5-4.9a1.8 1.8 0 1 1 0 3.6 1.8 1.8 0 0 1 0-3.6Zm4.1 4.9h3v1.4h.1c.4-.8 1.5-1.7 3-1.7 3.2 0 3.8 2.1 3.8 4.8v5.5h-3.1v-4.9c0-1.2 0-2.7-1.6-2.7s-1.9 1.3-1.9 2.6v5h-3.1v-10Z" />
+    </svg>
   );
 }
