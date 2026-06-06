@@ -101,9 +101,6 @@ export function Navigation() {
         <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn">
           <LinkedInIcon />
         </a>
-        <a className="rail-contact-button" href="#contact">
-          Contact me!
-        </a>
       </aside>
 
       <aside className="email-rail" aria-label="Email">

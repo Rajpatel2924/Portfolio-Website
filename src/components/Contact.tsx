@@ -1,4 +1,4 @@
-import { Award, Mail, MapPin, Phone } from 'lucide-react';
+import { Award, BadgeCheck, CalendarCheck, Mail, MapPin, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const reviews = [
@@ -10,10 +10,34 @@ const reviews = [
 ];
 
 const certifications = [
-  { title: 'Full Stack Development', platform: 'Project Based Learning', date: 'React, Node, Python' },
-  { title: 'AI Policy Analysis', platform: 'PolicyGuard', date: 'Offline LLM tooling' },
-  { title: 'Production Deployment', platform: 'Vercel + GitHub', date: 'Live portfolio workflow' },
-  { title: 'Commerce Integrations', platform: 'RajGharana', date: 'Clerk and Razorpay' },
+  {
+    title: 'Full Stack Development',
+    platform: 'Project Based Learning',
+    date: 'React, Node, Python',
+    detail: 'Built production-style web apps with clean UI, APIs, auth flows, and deployment pipelines.',
+    badge: 'Core Stack',
+  },
+  {
+    title: 'AI Policy Analysis',
+    platform: 'PolicyGuard',
+    date: 'Offline LLM tooling',
+    detail: 'Explored private document analysis, local model workflows, and explainable policy review patterns.',
+    badge: 'AI Systems',
+  },
+  {
+    title: 'Production Deployment',
+    platform: 'Vercel + GitHub',
+    date: 'Live portfolio workflow',
+    detail: 'Managed source control, build validation, preview releases, and production deployment on Vercel.',
+    badge: 'DevOps',
+  },
+  {
+    title: 'Commerce Integrations',
+    platform: 'RajGharana',
+    date: 'Clerk and Razorpay',
+    detail: 'Integrated authentication and payment-ready commerce flows for a polished luxury shopping experience.',
+    badge: 'Product Build',
+  },
 ];
 
 export function Contact() {
@@ -52,6 +76,23 @@ export function Contact() {
             <span />
           </div>
 
+          <div className="cert-intro">
+            <p>
+              A compact snapshot of the tools, workflows, and product skills I have been sharpening through
+              real projects and hands-on builds.
+            </p>
+            <div className="cert-summary" aria-label="Certification summary">
+              <span>
+                <BadgeCheck size={17} />
+                Project verified
+              </span>
+              <span>
+                <CalendarCheck size={17} />
+                Recently practiced
+              </span>
+            </div>
+          </div>
+
           <div className="cert-grid">
             {certifications.map((item, index) => (
               <motion.article
@@ -63,11 +104,13 @@ export function Contact() {
                 transition={{ duration: 0.5, delay: index * 0.06 }}
               >
                 <div className="cert-head">
-                  <Award size={28} />
+                  <Award size={26} />
+                  <span>{item.badge}</span>
                 </div>
                 <h3>{item.title}</h3>
                 <p>{item.platform}</p>
-                <span>{item.date}</span>
+                <div className="cert-detail">{item.detail}</div>
+                <div className="cert-meta">{item.date}</div>
               </motion.article>
             ))}
           </div>

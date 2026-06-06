@@ -292,22 +292,6 @@ main {
   color: var(--theme-4);
 }
 
-.rail-contact-button {
-  position: absolute;
-  left: 46px;
-  top: 42px;
-  display: inline-flex !important;
-  width: 190px !important;
-  height: 56px !important;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid var(--theme-4);
-  border-radius: 4px;
-  color: var(--theme-4) !important;
-  font-weight: 800;
-  white-space: nowrap;
-}
-
 .side-rail::after {
   display: block;
   width: 1px;
@@ -1064,13 +1048,27 @@ main {
 
 .certifications-view {
   position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(220, 229, 228, 0.98) 0%, rgba(220, 229, 228, 0.92) 38%, #232a33 38%, #232a33 100%);
 }
 
 .cert-top-band {
   position: absolute;
   inset: 0 0 auto;
   height: 360px;
-  background: var(--theme-3);
+  background:
+    radial-gradient(circle at 15% 18%, rgba(11, 177, 181, 0.18), transparent 32%),
+    linear-gradient(135deg, rgba(255, 211, 105, 0.16), rgba(11, 177, 181, 0.08)),
+    var(--theme-3);
+}
+
+.cert-top-band::after {
+  position: absolute;
+  inset: auto 0 0;
+  height: 1px;
+  background: rgba(35, 42, 51, 0.16);
+  content: "";
 }
 
 .certifications-shell {
@@ -1086,47 +1084,148 @@ main {
   background: rgba(15, 29, 33, 0.25);
 }
 
+.cert-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 28px;
+  align-items: end;
+  margin: -8px 0 38px;
+}
+
+.cert-intro p {
+  max-width: 650px;
+  margin: 0;
+  color: rgba(35, 42, 51, 0.76);
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.7;
+}
+
+.cert-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.cert-summary span {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(35, 42, 51, 0.14);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.48);
+  color: #232a33;
+  padding: 0 14px;
+  font-family: "Source Code Pro", monospace;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.cert-summary svg {
+  color: #0bb1b5;
+}
+
 .cert-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
 }
 
 .cert-card {
   display: flex;
-  min-height: 260px;
+  position: relative;
+  min-height: 300px;
   flex-direction: column;
-  border-radius: 4px;
-  background: var(--theme-2);
+  overflow: hidden;
+  border: 1px solid rgba(11, 177, 181, 0.18);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(11, 177, 181, 0.1), rgba(48, 56, 65, 0.72)),
+    #303841;
   padding: 28px;
-  box-shadow: var(--shadow);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.18);
+}
+
+.cert-card::before {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: linear-gradient(90deg, #0bb1b5, #ffd369);
+  content: "";
+}
+
+.cert-card::after {
+  position: absolute;
+  right: -58px;
+  bottom: -74px;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  background: rgba(255, 211, 105, 0.1);
+  content: "";
+  pointer-events: none;
 }
 
 .cert-card:nth-child(4) {
-  grid-column: span 2;
+  grid-column: auto;
 }
 
 .cert-head {
-  color: var(--theme-4);
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  color: #ffd369;
+}
+
+.cert-head span {
+  margin: 0;
+  border: 1px solid rgba(255, 211, 105, 0.24);
+  border-radius: 999px;
+  color: #7de5e8;
+  padding: 7px 10px;
+  font-family: "Source Code Pro", monospace;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
 }
 
 .cert-card h3 {
-  margin: 30px 0 0;
-  color: var(--theme-4);
-  font-size: clamp(1.4rem, 4vw, 1.75rem);
+  position: relative;
+  z-index: 1;
+  margin: 34px 0 0;
+  color: #f2fbfa;
+  font-size: clamp(1.35rem, 3vw, 1.85rem);
   line-height: 1.18;
 }
 
 .cert-card p {
+  position: relative;
+  z-index: 1;
   margin: 16px 0 0;
-  color: var(--theme-4);
+  color: #7de5e8;
   font-size: 1.1rem;
   font-weight: 700;
 }
 
-.cert-card span {
+.cert-detail {
+  position: relative;
+  z-index: 1;
+  margin-top: 18px;
+  color: rgba(220, 229, 228, 0.82);
+  line-height: 1.62;
+}
+
+.cert-meta {
+  position: relative;
+  z-index: 1;
   margin-top: auto;
-  color: var(--theme-4);
+  border-top: 1px solid rgba(220, 229, 228, 0.12);
+  color: #ffd369;
+  padding-top: 18px;
   font-size: 0.84rem;
   font-weight: 700;
 }
@@ -1317,6 +1416,15 @@ main {
   .experience-tabs,
   .cert-grid {
     grid-template-columns: 1fr;
+  }
+
+  .cert-intro {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .cert-summary {
+    justify-content: flex-start;
   }
 
   .experience-tab-list {
