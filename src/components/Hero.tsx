@@ -1,6 +1,6 @@
 import { ArrowRight, Code2, Database, Mail, ShieldCheck, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
-import heroImage from '../assets/professional-avatar.jpg';
+import heroImage from '../assets/raj-hero-photo.jpeg';
 import BlobCursor from './BlobCursor';
 import RotatingDecryptedText from './RotatingDecryptedText';
 
@@ -81,7 +81,7 @@ export function Hero() {
         >
           <div className="hero-portrait-shell">
             <div className="hero-portrait-filter" />
-            <img src={heroImage} alt="Professional animated portrait of Raj Patel" />
+            <img src={heroImage} alt="Raj Patel portrait" />
           </div>
 
           {orbitItems.map(({ label, Icon, className }) => (

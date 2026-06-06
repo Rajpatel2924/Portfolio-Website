@@ -1,20 +1,19 @@
-import { Menu, X } from 'lucide-react';
-import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import profileImage from '../assets/professional-avatar.jpg';
+import GooeyNav from './GooeyNav';
 
 const navItems = [
-  { name: 'Home', href: '#home' },
-  { name: 'My Self', href: '#skills' },
-  { name: 'Experience', href: '#experience' },
-  { name: 'My Work', href: '#projects' },
-  { name: 'Reviews', href: '#reviews' },
-  { name: 'Certifications', href: '#certifications' },
-  { name: 'Contact', href: '#contact' },
+  { label: 'Home', ariaLabel: 'Go to home section', link: '#home' },
+  { label: 'Myself', ariaLabel: 'Go to about section', link: '#skills' },
+  { label: 'My Work', ariaLabel: 'Go to projects section', link: '#projects' },
+  { label: 'Contact', ariaLabel: 'Go to contact section', link: '#contact' },
 ];
 
+const gooeyNavItems = navItems.map((item) => ({
+  label: item.label,
+  href: item.link,
+}));
+
 export function Navigation() {
-  const [isOpen, setIsOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
@@ -40,53 +39,9 @@ export function Navigation() {
         <span style={{ transform: `scaleX(${scrollProgress})` }} />
       </div>
 
-      <motion.header
-        className="top-nav"
-        initial={{ opacity: 0, y: -16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <a className="profile-logo" href="#home" aria-label="Raj Patel home">
-          <img src={profileImage} alt="" />
-        </a>
-
-        <nav className="nav-links" aria-label="Primary navigation">
-          {navItems.map((item) => (
-            <a key={item.name} href={item.href}>
-              {item.name}
-            </a>
-          ))}
-        </nav>
-
-        <a className="cv-top-link" href="#contact">
-          Curriculum Vitae | CV
-        </a>
-
-        <button
-          className="mobile-toggle"
-          type="button"
-          aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
-          aria-expanded={isOpen}
-          onClick={() => setIsOpen((open) => !open)}
-        >
-          {isOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
-      </motion.header>
-
-      {isOpen && (
-        <motion.nav
-          className="mobile-menu"
-          aria-label="Mobile navigation"
-          initial={{ opacity: 0, y: -8 }}
-          animate={{ opacity: 1, y: 0 }}
-        >
-          {navItems.map((item) => (
-            <a key={item.name} href={item.href} onClick={() => setIsOpen(false)}>
-              {item.name}
-            </a>
-          ))}
-        </motion.nav>
-      )}
+      <div className="top-gooey-nav">
+        <GooeyNav items={gooeyNavItems} />
+      </div>
 
       <aside className="social-rail" aria-label="Social links">
         <a href="https://github.com/Rajpatel2924" target="_blank" rel="noreferrer" aria-label="GitHub">

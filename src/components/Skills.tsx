@@ -1,7 +1,7 @@
 import { BriefcaseBusiness, Code2, Palette, ShieldCheck } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import profileImage from '../assets/professional-avatar.jpg';
+import profileImage from '../assets/raj-hero-photo.jpeg';
 
 const skills = [
   'JavaScript / TypeScript',
@@ -71,6 +71,8 @@ export function Skills() {
               <span />
             </div>
 
+            <div className="portfolio-kicker">Full stack developer / product builder</div>
+
             <p>
               Hello! My name is Raj Patel. I enjoy building useful digital products
               and exploring how software can make everyday problems easier to solve.
@@ -84,6 +86,21 @@ export function Skills() {
               Over time I have focused on turning ideas into deployed experiences
               with React, JavaScript, Python, GitHub, and Vercel.
             </p>
+
+            <div className="portfolio-highlights" aria-label="Portfolio highlights">
+              <span>
+                <strong>04</strong>
+                Featured builds
+              </span>
+              <span>
+                <strong>12</strong>
+                Core skills
+              </span>
+              <span>
+                <strong>Live</strong>
+                Vercel workflow
+              </span>
+            </div>
 
             <div className="skill-list">
               {skills.map((skill) => (
@@ -99,11 +116,22 @@ export function Skills() {
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.65, delay: 0.12 }}
           >
-            <div className="hover-image">
+            <motion.div
+              className="hover-image"
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -6 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{
+                duration: 0.35,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+            >
               <div className="hover-image-border" />
               <div className="hover-image-filter" />
-              <img src={profileImage} alt="Raj Patel profile illustration" />
-            </div>
+              <img src={profileImage} alt="Raj Patel profile photo" />
+              <div className="portfolio-image-badge">Raj Patel</div>
+            </motion.div>
           </motion.div>
         </div>
       </section>

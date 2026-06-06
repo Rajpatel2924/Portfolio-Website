@@ -18,11 +18,11 @@ const certifications = [
     badge: 'Core Stack',
   },
   {
-    title: 'AI Policy Analysis',
-    platform: 'PolicyGuard',
-    date: 'Offline LLM tooling',
-    detail: 'Explored private document analysis, local model workflows, and explainable policy review patterns.',
-    badge: 'AI Systems',
+    title: 'Oracle Certified Foundations Associate',
+    platform: 'Oracle University',
+    date: 'Issued Sep 12, 2025',
+    detail: 'Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate recognition for AI, ML, and cloud fundamentals.',
+    badge: 'Oracle AI',
   },
   {
     title: 'Production Deployment',
@@ -117,7 +117,7 @@ export function Contact() {
         </div>
       </section>
 
-      <section className="contact-view">
+      <section id="contact" className="contact-view">
         <div className="zebra-strip" />
         <div className="contact-box">
           <div className="contact-box-inner">
