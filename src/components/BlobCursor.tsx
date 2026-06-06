@@ -4,6 +4,7 @@ import './BlobCursor.css';
 
 type BlobCursorProps = {
   blobType?: 'circle' | 'square';
+  className?: string;
   fillColor?: string;
   trailCount?: number;
   sizes?: number[];
@@ -22,11 +23,14 @@ type BlobCursorProps = {
   slowDuration?: number;
   fastEase?: string;
   slowEase?: string;
+  followCursor?: boolean;
+  autoAnimate?: boolean;
   zIndex?: number;
 };
 
 export default function BlobCursor({
   blobType = 'circle',
+  className,
   fillColor = '#5227FF',
   trailCount = 3,
   sizes = [60, 125, 75],
@@ -45,6 +49,8 @@ export default function BlobCursor({
   slowDuration = 0.5,
   fastEase = 'power3.out',
   slowEase = 'power1.out',
+  followCursor = true,
+  autoAnimate = false,
   zIndex = 100,
 }: BlobCursorProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -75,6 +81,8 @@ export default function BlobCursor({
   );
 
   useEffect(() => {
+    if (!followCursor) return;
+
     const onPointerMove = (event: PointerEvent) => {
       moveBlobs(event.clientX, event.clientY);
     };
@@ -95,17 +103,72 @@ export default function BlobCursor({
       window.removeEventListener('touchmove', onTouchMove);
       window.removeEventListener('resize', onResize);
     };
-  }, [moveBlobs, updateOffset]);
+  }, [followCursor, moveBlobs, updateOffset]);
 
   useEffect(() => {
     if (!containerRef.current) return;
 
     const rect = containerRef.current.getBoundingClientRect();
-    moveBlobs(rect.left + rect.width * 0.58, rect.top + rect.height * 0.62);
+    moveBlobs(rect.left + rect.width * 0.68, rect.top + rect.height * 0.58);
   }, [moveBlobs]);
 
+  useEffect(() => {
+    if (!autoAnimate || !containerRef.current) return;
+
+    const timelines: gsap.core.Timeline[] = [];
+
+    const startAnimation = () => {
+      timelines.splice(0).forEach((timeline) => timeline.kill());
+      const rect = containerRef.current?.getBoundingClientRect();
+      if (!rect) return;
+
+      blobsRef.current.forEach((el, index) => {
+        if (!el) return;
+
+        const offset = index * 0.035;
+        gsap.set(el, {
+          x: rect.width * (0.68 + offset),
+          y: rect.height * (0.58 - offset),
+          scale: 1,
+        });
+
+        const timeline = gsap.timeline({
+          repeat: -1,
+          yoyo: true,
+          delay: index * 0.28,
+        });
+
+        timeline
+          .to(el, {
+            x: rect.width * (0.72 - offset),
+            y: rect.height * (0.5 + offset),
+            scale: 1.04 - index * 0.03,
+            duration: 7.5 + index,
+            ease: 'sine.inOut',
+          })
+          .to(el, {
+            x: rect.width * (0.64 + offset),
+            y: rect.height * (0.64 - offset),
+            scale: 0.98 + index * 0.02,
+            duration: 8.5 + index,
+            ease: 'sine.inOut',
+          });
+
+        timelines.push(timeline);
+      });
+    };
+
+    startAnimation();
+    window.addEventListener('resize', startAnimation);
+
+    return () => {
+      window.removeEventListener('resize', startAnimation);
+      timelines.forEach((timeline) => timeline.kill());
+    };
+  }, [autoAnimate]);
+
   return (
-    <div ref={containerRef} className="blob-container" style={{ zIndex }} aria-hidden="true">
+    <div ref={containerRef} className={`blob-container ${className ?? ''}`} style={{ zIndex }} aria-hidden="true">
       {useFilter && (
         <svg style={{ position: 'absolute', width: 0, height: 0 }}>
           <filter id={filterId}>

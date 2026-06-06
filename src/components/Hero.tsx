@@ -2,6 +2,7 @@ import { ArrowRight, Code2, Database, Mail, ShieldCheck, Sparkles } from 'lucide
 import { motion } from 'framer-motion';
 import heroImage from '../assets/professional-avatar.jpg';
 import BlobCursor from './BlobCursor';
+import RotatingDecryptedText from './RotatingDecryptedText';
 
 const orbitItems = [
   { label: 'React', Icon: Code2, className: 'orbit-one' },
@@ -10,9 +11,36 @@ const orbitItems = [
   { label: 'Security', Icon: ShieldCheck, className: 'orbit-four' },
 ];
 
+const heroTagline = [
+  'A full stack developer',
+  'I Build things for the Web',
+  'A Traveller',
+];
+
 export function Hero() {
   return (
     <section className="hero-view">
+      <BlobCursor
+        className="hero-blob-background"
+        blobType="circle"
+        fillColor="#f2d56c"
+        trailCount={3}
+        sizes={[760, 640, 520]}
+        innerSizes={[34, 22, 16]}
+        innerColor="rgba(255,255,255,0.4)"
+        opacities={[0.9, 0.32, 0.18]}
+        shadowColor="rgba(201,85,82,0.07)"
+        shadowBlur={48}
+        shadowOffsetX={0}
+        shadowOffsetY={34}
+        filterId="hero-yellow-blob"
+        filterStdDeviation={16}
+        useFilter={true}
+        followCursor={true}
+        autoAnimate={false}
+        zIndex={0}
+      />
+
       <div className="hero-inner">
         <motion.div
           className="hero-copy"
@@ -23,8 +51,10 @@ export function Hero() {
           <span className="hero-kicker">G&apos;day, I&apos;m</span>
           <h1>
             Raj Patel,
-            <span>A Software Engineer</span>
           </h1>
+          <div className="hero-decrypted-line" aria-label="A full stack developer, I build things for the web and a traveller">
+            <RotatingDecryptedText phrases={heroTagline} />
+          </div>
           <p>
             A dedicated full-stack developer who loves creating useful things for
             the internet. I build clean interfaces, practical tools, and products
@@ -49,26 +79,6 @@ export function Hero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
         >
-          <BlobCursor
-            blobType="circle"
-            fillColor="#f2d56c"
-            trailCount={3}
-            sizes={[620, 460, 280]}
-            innerSizes={[34, 22, 16]}
-            innerColor="rgba(255,255,255,0.42)"
-            opacities={[0.92, 0.38, 0.24]}
-            shadowColor="rgba(201,85,82,0.08)"
-            shadowBlur={42}
-            shadowOffsetX={0}
-            shadowOffsetY={28}
-            filterId="hero-yellow-blob"
-            filterStdDeviation={18}
-            useFilter={true}
-            fastDuration={0.18}
-            slowDuration={0.72}
-            zIndex={0}
-          />
-
           <div className="hero-portrait-shell">
             <div className="hero-portrait-filter" />
             <img src={heroImage} alt="Professional animated portrait of Raj Patel" />

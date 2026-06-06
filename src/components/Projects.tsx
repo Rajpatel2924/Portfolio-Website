@@ -1,5 +1,9 @@
-import { ArrowUpRight, Code2, HeartPulse, Landmark, ShieldCheck, Siren } from 'lucide-react';
+import { ArrowUpRight, Code2 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import bioBalanceImage from '../assets/project-biobalance.png';
+import policyGuardImage from '../assets/project-policyguard.png';
+import rajGharanaImage from '../assets/project-rajgharana.png';
+import resqHerImage from '../assets/project-resqher.png';
 
 const projects = [
   {
@@ -9,7 +13,7 @@ const projects = [
     tags: 'JavaScript | TypeScript | Python | CSS',
     url: 'github.com/Rajpatel2924/ResQ-Her',
     github: 'https://github.com/Rajpatel2924/ResQ-Her',
-    Icon: Siren,
+    image: resqHerImage,
     color: 'coral',
   },
   {
@@ -19,7 +23,7 @@ const projects = [
     tags: 'Python | LLM | Policy Analysis',
     url: 'github.com/Rajpatel2924/PolicyGuard',
     github: 'https://github.com/Rajpatel2924/PolicyGuard',
-    Icon: ShieldCheck,
+    image: policyGuardImage,
     color: 'gold',
   },
   {
@@ -30,7 +34,7 @@ const projects = [
     url: 'raj-gharana.vercel.app',
     github: 'https://github.com/Rajpatel2924/RajGharana',
     live: 'https://raj-gharana.vercel.app',
-    Icon: Landmark,
+    image: rajGharanaImage,
     color: 'blue',
   },
   {
@@ -40,14 +44,12 @@ const projects = [
     tags: 'JavaScript | Python | CSS | HTML',
     url: 'github.com/Rajpatel2924/Biobalance',
     github: 'https://github.com/Rajpatel2924/Biobalance',
-    Icon: HeartPulse,
+    image: bioBalanceImage,
     color: 'mint',
   },
 ];
 
 function BrowserPreview({ project }: { project: (typeof projects)[number] }) {
-  const Icon = project.Icon;
-
   return (
     <div className={`browser-window preview-${project.color}`}>
       <div className="browser-bar">
@@ -59,14 +61,7 @@ function BrowserPreview({ project }: { project: (typeof projects)[number] }) {
         <div className="browser-url">{project.url}</div>
       </div>
       <div className="preview-stage">
-        <div className="preview-icon">
-          <Icon size={62} />
-        </div>
-        <div className="preview-lines">
-          <span />
-          <span />
-          <span />
-        </div>
+        <img className="project-preview-image" src={project.image} alt={`${project.title} project screenshot`} />
       </div>
     </div>
   );

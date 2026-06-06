@@ -32,10 +32,10 @@ export function Contact() {
             <motion.div
               className={`review-item ${index % 2 === 0 ? 'align-end' : 'align-start'}`}
               key={review.text}
-              initial={{ opacity: 0, x: index % 2 === 0 ? 80 : -80 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, x: index % 2 === 0 ? 140 : -140, scale: 0.96 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
               viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.55 }}
+              transition={{ duration: 0.72, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
             >
               <span>{review.by}</span>
               <strong>&quot;{review.text}&quot;</strong>
