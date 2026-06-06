@@ -134,11 +134,12 @@ export function Skills() {
             <motion.div
               className="experience-panel"
               key={current.company}
-              initial={{ opacity: 0, x: 18 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.35 }}
+              initial={{ opacity: 0, x: 28, scale: 0.98 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
               role="tabpanel"
             >
+              <div className="experience-eyebrow">Selected Experience</div>
               <div className="experience-title">
                 <BriefcaseBusiness size={22} />
                 <h3>
