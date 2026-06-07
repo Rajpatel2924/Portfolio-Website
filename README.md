@@ -1,217 +1,131 @@
-# Portfolio Website with Animations
+# Raj Patel Portfolio Website
 
-A modern, fully animated portfolio website built with **React**, **Vite**, **TypeScript**, **Tailwind CSS**, and **Framer Motion**. Features smooth animations, responsive design, and interactive components inspired by ReactBits design patterns.
+A modern personal portfolio for showcasing my work as a full stack developer and product builder. The site highlights practical web projects, technical skills, competitive programming stats, a resume snapshot, and contact details in a polished animated interface.
 
-## ✨ Features
+Live site: [portfolio-website-lac-gamma.vercel.app](https://portfolio-website-lac-gamma.vercel.app)
 
-- **Animated Hero Section** - Smooth fade-in animations with gradient text and floating elements
-- **Project Showcase** - Animated project cards with hover effects and tags
-- **Skills Section** - Animated skill cards with progress bars and hover effects
-- **Contact Form** - Fully animated contact section with form inputs
-- **Responsive Navigation** - Mobile-friendly navbar with smooth transitions
-- **Dark Mode Design** - Beautiful dark theme with purple and pink gradients
-- **Smooth Scroll** - Scroll-triggered animations for sections
-- **Interactive Elements** - Buttons and links with micro-interactions
+## Overview
 
-## 🚀 Technologies Used
+This portfolio is built as a single-page React application with smooth section navigation, animated project showcases, custom cursor effects, and a responsive dark visual system. It is designed to present real deployed projects and make it easy for recruiters, collaborators, and visitors to understand my current focus.
 
-- **React 18** - UI library
-- **Vite** - Fast build tool and dev server
-- **TypeScript** - Type safety
-- **Tailwind CSS** - Utility-first CSS framework
-- **Framer Motion** - Animation library
-- **Lucide React** - Icon library
+## Sections
 
-## 📦 Installation
+- `Home`: Intro hero with animated text, profile image, orbit chips, and quick links.
+- `Myself`: Portfolio summary, current focus, core skills, and coding stats.
+- `My Work`: Featured builds with project screenshots, descriptions, code links, and live links where available.
+- `Resume`: A compact resume snapshot with role focus, highlights, and contact CTA.
+- `Contact`: Email, phone, location, and direct call-to-action.
 
-1. Install dependencies:
+## Featured Projects
+
+- `ResQ-Her`: Rapid-response women safety app with silent SOS, live location sharing, trusted contact alerts, and discreet evidence capture.
+- `PolicyGuard`: Offline LLM policy analyzer for inspecting and flagging policy concerns without relying on hosted model workflows.
+- `RajGharana`: Luxury fashion eCommerce platform with authentication, checkout flow, and Razorpay payment integration.
+- `BioBalance`: Health-focused app that recommends meals based on vital parameters such as blood pressure, blood sugar, and oxygen level.
+
+## Highlights
+
+- Responsive one-page portfolio experience
+- Gooey animated navigation
+- Custom BlobCursor hero background
+- Framer Motion reveal animations
+- Project browser-preview cards
+- Resume snapshot section
+- Competitive programming and GitHub stat cards
+- Vercel production deployment
+
+## Tech Stack
+
+- `React`
+- `TypeScript`
+- `Vite`
+- `Framer Motion`
+- `Lucide React`
+- `GSAP`
+- `React Spring`
+- `CSS`
+- `Vercel`
+
+## Getting Started
+
+Clone the repository and install dependencies:
+
 ```bash
 npm install
 ```
 
-2. Start the development server:
+Start the local development server:
+
 ```bash
 npm run dev
 ```
 
-3. Open your browser and visit `http://localhost:5173/`
-
-## 📁 Project Structure
-
-```
-src/
-├── components/
-│   ├── Hero.tsx          # Hero section with animations
-│   ├── Projects.tsx      # Projects showcase
-│   ├── Skills.tsx        # Skills section with progress bars
-│   ├── Contact.tsx       # Contact form
-│   ├── Navigation.tsx    # Navigation bar
-│   ├── Footer.tsx        # Footer
-│   └── index.ts          # Component exports
-├── App.tsx               # Main app component
-├── App.css               # App styles
-├── index.css             # Global styles + Tailwind
-└── main.tsx              # Entry point
-```
-
-## 🎨 Customization
-
-### Update Personal Information
-Edit the following files to add your personal details:
-
-- **Hero Section** (`src/components/Hero.tsx`):
-  - Change "Your Name" to your actual name
-  - Update the bio/description
-  - Add your social links
-
-- **Projects** (`src/components/Projects.tsx`):
-  - Replace sample projects with your actual projects
-  - Update GitHub and live demo links
-  - Change project images/emojis
-
-- **Skills** (`src/components/Skills.tsx`):
-  - Add your technical skills and proficiencies
-  - Adjust percentage values
-
-- **Contact** (`src/components/Contact.tsx`):
-  - Update your email address
-  - Change phone number and location
-  - Update form submission handler
-
-### Styling Customization
-
-Edit `tailwind.config.js` to customize:
-- Colors and gradients
-- Animation timing
-- Responsive breakpoints
-
-## 🔧 Available Scripts
+Build for production:
 
 ```bash
-# Development server
-npm run dev
-
-# Build for production
 npm run build
+```
 
-# Preview production build
+Preview the production build locally:
+
+```bash
 npm run preview
+```
 
-# Lint with ESLint
+Run linting:
+
+```bash
 npm run lint
 ```
 
-## 🎬 Animation Features
+## Project Structure
 
-- **Framer Motion** for smooth transitions
-- **Stagger animations** for sequenced element reveals
-- **Scroll-triggered animations** using `whileInView`
-- **Hover effects** on interactive elements
-- **Parallax effects** on hero section
-- **Progress bar animations** in skills section
+```text
+src/
+  assets/
+    project-biobalance.png
+    project-policyguard.png
+    project-rajgharana.png
+    project-resqher.png
+    raj-hero-photo.jpeg
+  components/
+    BlobCursor.tsx
+    Contact.tsx
+    Footer.tsx
+    GooeyNav.tsx
+    Hero.tsx
+    Navigation.tsx
+    Projects.tsx
+    Resume.tsx
+    Skills.tsx
+    index.ts
+  App.tsx
+  main.tsx
+  index.css
+```
 
-## 📱 Responsive Design
+## Deployment
 
-The portfolio is fully responsive and works on:
-- Desktop (1024px and above)
-- Tablet (768px - 1023px)
-- Mobile (below 768px)
+The site is deployed on Vercel.
 
-## 🌐 Deployment
+Production URL:
 
-### Deploy to Vercel (Recommended)
+```text
+https://portfolio-website-lac-gamma.vercel.app
+```
 
-1. Push your code to GitHub
-2. Connect your repository to Vercel
-3. Vercel will automatically deploy on push
+Manual production deployment:
 
-### Deploy to Netlify
-
-1. Build the project:
 ```bash
-npm run build
+vercel deploy --prod
 ```
 
-2. Deploy the `dist` folder to Netlify
+## Contact
 
-### Deploy to GitHub Pages
+Raj Patel  
+Email: [rajpatel805233@gmail.com](mailto:rajpatel805233@gmail.com)  
+GitHub: [Rajpatel2924](https://github.com/Rajpatel2924)
 
-1. Update `vite.config.ts` with your repository name
-2. Build: `npm run build`
-3. Push `dist` folder to `gh-pages` branch
+## License
 
-## 📝 Notes
-
-- The contact form currently logs to console. Integrate with a backend service (Formspree, Emailjs, etc.) for actual email sending
-- Replace emoji placeholders in projects with actual images
-- Add your CV file for the "Download CV" button
-- Update social media links in Navigation and Footer components
-
-## 🎯 Future Enhancements
-
-- [ ] Dark/Light mode toggle
-- [ ] Blog section
-- [ ] Testimonials carousel
-- [ ] 3D animations with Three.js
-- [ ] Email integration with backend
-
-## 📄 License
-
-This project is open source and available under the MIT License.
-
----
-
-**Happy coding! 🚀**
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+This project is for personal portfolio use.
