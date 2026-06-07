@@ -18,6 +18,28 @@ const skills = [
   'Vercel',
 ];
 
+const portfolioStats = [
+  {
+    label: 'LeetCode',
+    value: '200+',
+    detail: 'solved',
+  },
+  {
+    label: 'Contest Rating',
+    value: '1529',
+  },
+  {
+    label: 'GitHub Repos',
+    value: '7',
+    detail: 'public',
+  },
+  {
+    label: 'Best Rank',
+    value: '6000',
+    detail: 'weekly',
+  },
+];
+
 const experiences = [
   {
     company: 'Portfolio Projects',
@@ -87,19 +109,14 @@ export function Skills() {
               with React, JavaScript, Python, GitHub, and Vercel.
             </p>
 
-            <div className="portfolio-highlights" aria-label="Portfolio highlights">
-              <span>
-                <strong>04</strong>
-                Featured builds
-              </span>
-              <span>
-                <strong>12</strong>
-                Core skills
-              </span>
-              <span>
-                <strong>Live</strong>
-                Vercel workflow
-              </span>
+            <div className="portfolio-highlights" aria-label="Portfolio stats">
+              {portfolioStats.map((stat) => (
+                <span key={stat.label}>
+                  <small>{stat.label}</small>
+                  <strong>{stat.value}</strong>
+                  {stat.detail}
+                </span>
+              ))}
             </div>
 
             <div className="skill-list">

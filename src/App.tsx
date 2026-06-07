@@ -1,4 +1,4 @@
-import { Navigation, Hero, Projects, Skills, Contact, Footer } from './components'
+import { Navigation, Hero, Projects, Skills, Resume, Contact, Footer } from './components'
 import './App.css'
 
 function App() {
@@ -15,6 +15,7 @@ function App() {
         <section id="projects">
           <Projects />
         </section>
+        <Resume />
         <section>
           <Contact />
         </section>

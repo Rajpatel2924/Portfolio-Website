@@ -5,6 +5,7 @@ const navItems = [
   { label: 'Home', ariaLabel: 'Go to home section', link: '#home' },
   { label: 'Myself', ariaLabel: 'Go to about section', link: '#skills' },
   { label: 'My Work', ariaLabel: 'Go to projects section', link: '#projects' },
+  { label: 'Resume', ariaLabel: 'Go to resume section', link: '#resume' },
   { label: 'Contact', ariaLabel: 'Go to contact section', link: '#contact' },
 ];
 
